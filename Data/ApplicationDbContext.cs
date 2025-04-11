@@ -20,7 +20,7 @@ namespace ProjetoCorina2.Data
 
         //public DbSet<RegistroPrecenca> RegistroPrecencas { get; set; }
 
-        //public DbSet<ResgistroAusencia> ResgistroAusencias { get; set; }
+        public DbSet<RegistroAusencia> ResgistroAusencias { get; set; }
 
         //public DbSet<Aviso> Avisos { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
