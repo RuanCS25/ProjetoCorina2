@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ProjetoCorina2.Models;
 
 namespace ProjetoCorina2.Data
 {
@@ -8,6 +9,26 @@ namespace ProjetoCorina2.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+        }
+        public DbSet<TipoUsuario> TipoUsuarios { get; set; }
+
+        public DbSet<Classificacoe> Classificacoes { get; set; }
+
+        public DbSet<Horario> Horarios { get; set; }
+
+        //public DbSet<Usuario> Usuarios { get; set; }
+
+        //public DbSet<RegistroPrecenca> RegistroPrecencas { get; set; }
+
+        //public DbSet<ResgistroAusencia> ResgistroAusencias { get; set; }
+
+        //public DbSet<Aviso> Avisos { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<TipoUsuario>().ToTable("TipoUsuarios");
+            builder.Entity<Classificacoe>().ToTable("Classificacoes");
+            builder.Entity<Horario>().ToTable("Horarios");
         }
     }
 }
