@@ -224,6 +224,50 @@ namespace ProjetoCorina2.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ProjetoCorina2.Models.Aluno", b =>
+                {
+                    b.Property<Guid>("AlunoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ClassificacoeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ClassificacoesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("HorarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AlunoId");
+
+                    b.HasIndex("ClassificacoeId");
+
+                    b.HasIndex("HorarioId");
+
+                    b.ToTable("Alunos", (string)null);
+                });
+
             modelBuilder.Entity("ProjetoCorina2.Models.Classificacoe", b =>
                 {
                     b.Property<Guid>("ClassificacoeId")
@@ -252,21 +296,6 @@ namespace ProjetoCorina2.Data.Migrations
                     b.HasKey("HorarioId");
 
                     b.ToTable("Horarios", (string)null);
-                });
-
-            modelBuilder.Entity("ProjetoCorina2.Models.TipoUsuario", b =>
-                {
-                    b.Property<Guid>("TipoUsuarioId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Tipo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TipoUsuarioId");
-
-                    b.ToTable("TipoUsuarios", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -318,6 +347,23 @@ namespace ProjetoCorina2.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ProjetoCorina2.Models.Aluno", b =>
+                {
+                    b.HasOne("ProjetoCorina2.Models.Classificacoe", "Classificacoe")
+                        .WithMany()
+                        .HasForeignKey("ClassificacoeId");
+
+                    b.HasOne("ProjetoCorina2.Models.Horario", "Horario")
+                        .WithMany()
+                        .HasForeignKey("HorarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Classificacoe");
+
+                    b.Navigation("Horario");
                 });
 #pragma warning restore 612, 618
         }
