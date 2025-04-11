@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoCorina2.Data;
 
@@ -11,9 +12,11 @@ using ProjetoCorina2.Data;
 namespace ProjetoCorina2.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250411140604_TipoUsuarios")]
+    partial class TipoUsuarios
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -222,36 +225,6 @@ namespace ProjetoCorina2.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("ProjetoCorina2.Models.Classificacoe", b =>
-                {
-                    b.Property<Guid>("ClassificacoeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ClassificacoeId");
-
-                    b.ToTable("Classificacoes", (string)null);
-                });
-
-            modelBuilder.Entity("ProjetoCorina2.Models.Horario", b =>
-                {
-                    b.Property<Guid>("HorarioId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Turno")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("HorarioId");
-
-                    b.ToTable("Horarios", (string)null);
                 });
 
             modelBuilder.Entity("ProjetoCorina2.Models.TipoUsuario", b =>
