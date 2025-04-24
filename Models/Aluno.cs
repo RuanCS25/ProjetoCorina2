@@ -1,5 +1,4 @@
-﻿using ProjetoCorina2.Data.Migrations;
-
+﻿
 namespace ProjetoCorina2.Models
 {
     public class Aluno
@@ -13,7 +12,7 @@ namespace ProjetoCorina2.Models
 
         public string CPF { get; set; }
 
-        public Guid ClassificacoesId { get; set; }
+        public Guid ClassificacoeId { get; set; }
 
         public Classificacoe? Classificacoe { get; set; }
 

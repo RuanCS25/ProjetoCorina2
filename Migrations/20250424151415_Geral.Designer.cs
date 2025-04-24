@@ -3,21 +3,24 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoCorina2.Data;
 
 #nullable disable
 
-namespace ProjetoCorina2.Data.Migrations
+namespace ProjetoCorina2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250424151415_Geral")]
+    partial class Geral
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.19")
+                .HasAnnotation("ProductVersion", "7.0.20")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -238,10 +241,7 @@ namespace ProjetoCorina2.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("ClassificacoeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ClassificacoesId")
+                    b.Property<Guid>("ClassificacoeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
@@ -283,7 +283,7 @@ namespace ProjetoCorina2.Data.Migrations
 
                     b.HasKey("AvisoId");
 
-                    b.ToTable("Avisos");
+                    b.ToTable("Avisos", (string)null);
                 });
 
             modelBuilder.Entity("ProjetoCorina2.Models.Classificacoe", b =>
@@ -337,7 +337,7 @@ namespace ProjetoCorina2.Data.Migrations
 
                     b.HasIndex("AlunoId");
 
-                    b.ToTable("RegPresenca");
+                    b.ToTable("RegPresencas", (string)null);
                 });
 
             modelBuilder.Entity("ProjetoCorina2.Models.RegistroAusencia", b =>
@@ -360,7 +360,7 @@ namespace ProjetoCorina2.Data.Migrations
 
                     b.HasIndex("AlunoId");
 
-                    b.ToTable("ResgistroAusencias");
+                    b.ToTable("RegistroAusencias", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -418,7 +418,9 @@ namespace ProjetoCorina2.Data.Migrations
                 {
                     b.HasOne("ProjetoCorina2.Models.Classificacoe", "Classificacoe")
                         .WithMany()
-                        .HasForeignKey("ClassificacoeId");
+                        .HasForeignKey("ClassificacoeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ProjetoCorina2.Models.Horario", "Horario")
                         .WithMany()
