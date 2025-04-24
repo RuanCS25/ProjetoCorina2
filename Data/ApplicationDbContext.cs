@@ -18,7 +18,7 @@ namespace ProjetoCorina2.Data
 
         public DbSet<Aluno> Alunos { get; set; }
 
-        //public DbSet<RegistroPrecenca> RegistroPrecencas { get; set; }
+        public DbSet<RegPresenca> RegistroPresencas { get; set; }
 
         //public DbSet<ResgistroAusencia> ResgistroAusencias { get; set; }
 
