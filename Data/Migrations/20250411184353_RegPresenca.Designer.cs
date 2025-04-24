@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoCorina2.Data;
 
@@ -11,9 +12,11 @@ using ProjetoCorina2.Data;
 namespace ProjetoCorina2.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250411184353_RegPresenca")]
+    partial class RegPresenca
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -322,29 +325,6 @@ namespace ProjetoCorina2.Data.Migrations
                     b.ToTable("RegistroPresencas");
                 });
 
-            modelBuilder.Entity("ProjetoCorina2.Models.RegistroAusencia", b =>
-                {
-                    b.Property<Guid>("RegistroAusenciaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AlunoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("Data")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Refeicao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("RegistroAusenciaId");
-
-                    b.HasIndex("AlunoId");
-
-                    b.ToTable("ResgistroAusencias");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -422,17 +402,6 @@ namespace ProjetoCorina2.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Alunos");
-                });
-
-            modelBuilder.Entity("ProjetoCorina2.Models.RegistroAusencia", b =>
-                {
-                    b.HasOne("ProjetoCorina2.Models.Aluno", "Aluno")
-                        .WithMany()
-                        .HasForeignKey("AlunoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Aluno");
                 });
 #pragma warning restore 612, 618
         }
