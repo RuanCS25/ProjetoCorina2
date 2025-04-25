@@ -1,6 +1,4 @@
-﻿using ProjetoCorina2.Data.Migrations;
-
-namespace ProjetoCorina2.Models
+﻿namespace ProjetoCorina2.Models
 {
     public class RegPresenca
     {
