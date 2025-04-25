@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-danger  border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cozinha Online</a>
+                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Cozinha Online</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,28 +20,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Central</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Central</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Fudamentos</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Politica de Privacidade</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Alunos</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Alunos" asp-action="Index">Alunos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Classificacoes" asp-action="Index">Classificações</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="RegPresencas" asp-action="Index">Registrar Presencas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Horarios" asp-action="Index">Horarios</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="RegistroAusencias1" asp-action="Index">Registrar Ausencias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="RegPresencas" asp-action="Index">Registro Presencas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="RegistroAusencias1" asp-action="Index">Registro Ausencias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Avisos" asp-action="Index">Avisos</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Avisos" asp-action="Index">Avisos</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -55,7 +49,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted  bg-danger  ">
         <div class="container">
             &copy; 2025 - Cozinha Online - <a asp-area="" asp-controller="Home" asp-action="Privacy">Politica de Privacidade</a>
         </div>

@@ -26,7 +26,7 @@ namespace ProjetoCorina2.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Alunos/Details/5
+        // GET: Alunos/Details/5    
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null || _context.Alunos == null)
