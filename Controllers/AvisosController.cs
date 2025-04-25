@@ -22,9 +22,8 @@ namespace ProjetoCorina2.Controllers
         // GET: Avisos
         public async Task<IActionResult> Index()
         {
-              return _context.Avisos != null ? 
-                          View(await _context.Avisos.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Avisos'  is null.");
+            var applicationDbContext = _context.Avisos.Include(a => a.Aluno);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Avisos/Details/5
@@ -36,6 +35,7 @@ namespace ProjetoCorina2.Controllers
             }
 
             var aviso = await _context.Avisos
+                .Include(a => a.Aluno)
                 .FirstOrDefaultAsync(m => m.AvisoId == id);
             if (aviso == null)
             {
@@ -48,6 +48,7 @@ namespace ProjetoCorina2.Controllers
         // GET: Avisos/Create
         public IActionResult Create()
         {
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId");
             return View();
         }
 
@@ -56,7 +57,7 @@ namespace ProjetoCorina2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AvisoId,Descricao,AlunoId")] Aviso aviso)
+        public async Task<IActionResult> Create([Bind("AvisoId,AlunoId,Descricao")] Aviso aviso)
         {
             if (ModelState.IsValid)
             {
@@ -65,6 +66,7 @@ namespace ProjetoCorina2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", aviso.AlunoId);
             return View(aviso);
         }
 
@@ -81,6 +83,7 @@ namespace ProjetoCorina2.Controllers
             {
                 return NotFound();
             }
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", aviso.AlunoId);
             return View(aviso);
         }
 
@@ -89,7 +92,7 @@ namespace ProjetoCorina2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("AvisoId,Descricao,AlunoId")] Aviso aviso)
+        public async Task<IActionResult> Edit(Guid id, [Bind("AvisoId,AlunoId,Descricao")] Aviso aviso)
         {
             if (id != aviso.AvisoId)
             {
@@ -116,6 +119,7 @@ namespace ProjetoCorina2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", aviso.AlunoId);
             return View(aviso);
         }
 
@@ -128,6 +132,7 @@ namespace ProjetoCorina2.Controllers
             }
 
             var aviso = await _context.Avisos
+                .Include(a => a.Aluno)
                 .FirstOrDefaultAsync(m => m.AvisoId == id);
             if (aviso == null)
             {
