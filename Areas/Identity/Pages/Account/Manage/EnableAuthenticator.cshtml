@@ -1,0 +1,26 @@
+﻿@page
+@model EnableAuthenticatorModel
+@{
+    ViewData["Title"] = "Configurar aplicativo autenticador";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<h3>Configurar aplicativo autenticador</h3>
+<div>
+    <p>Para usar um aplicativo autenticador, siga os seguintes passos:</p>
+    <ol class="list">
+        <li>
+            <p>
+                Baixe um aplicativo de autenticação de dois fatores como o Microsoft Authenticator para
+                <a href="https://go.microsoft.com/fwlink/?Linkid=825072">Android</a> e
+                <a href="https://go.microsoft.com/fwlink/?Linkid=825073">iOS</a> ou
+                o Google Authenticator para
+                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en">Android</a> e
+                <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">iOS</a>.
+            </p>
+        </li>
+        <li>
+            <p>Escaneie o código QR ou insira esta chave <kbd>@Model.SharedKey</kbd> no seu aplicativo autenticador de dois fatores. Espaços e maiúsculas/minúsculas não fazem diferença.</p>
+            <div class="alert alert-info">Saiba como <a href="https://go.microsoft.com/fwlink/?Linkid=852423">habilitar a geração de código QR</a>.</div>
+            <div

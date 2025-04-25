@@ -10,25 +10,29 @@ namespace ProjetoCorina2.Data
             : base(options)
         {
         }
-        public DbSet<TipoUsuario> TipoUsuarios { get; set; }
+
 
         public DbSet<Classificacoe> Classificacoes { get; set; }
 
         public DbSet<Horario> Horarios { get; set; }
 
-        //public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Aluno> Alunos { get; set; }
 
-        //public DbSet<RegistroPrecenca> RegistroPrecencas { get; set; }
+        public DbSet<RegPresenca> RegPresencas { get; set; }
 
-        //public DbSet<ResgistroAusencia> ResgistroAusencias { get; set; }
+        public DbSet<RegistroAusencia> RegistroAusencias { get; set; }
 
-        //public DbSet<Aviso> Avisos { get; set; }
+        public DbSet<Aviso> Avisos { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<TipoUsuario>().ToTable("TipoUsuarios");
             builder.Entity<Classificacoe>().ToTable("Classificacoes");
             builder.Entity<Horario>().ToTable("Horarios");
+            builder.Entity<Aluno>().ToTable("Alunos");
+            builder.Entity<RegistroAusencia>().ToTable("RegistroAusencias");
+            builder.Entity<RegPresenca>().ToTable("RegPresencas");
+            builder.Entity<Aviso>().ToTable("Avisos");
+
         }
     }
 }
