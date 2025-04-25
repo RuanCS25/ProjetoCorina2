@@ -156,14 +156,14 @@ namespace ProjetoCorina2.Controllers
             {
                 _context.RegPresencas.Remove(regPresenca);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RegPresencaExists(Guid id)
         {
-          return (_context.RegPresencas?.Any(e => e.RegPresencaId == id)).GetValueOrDefault();
+            return (_context.RegPresencas?.Any(e => e.RegPresencaId == id)).GetValueOrDefault();
         }
     }
 }
