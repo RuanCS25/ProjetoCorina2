@@ -48,7 +48,7 @@ namespace ProjetoCorina2.Controllers
         // GET: RegPresencas/Create
         public IActionResult Create()
         {
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId");
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome");
             return View();
         }
 
@@ -66,7 +66,7 @@ namespace ProjetoCorina2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", regPresenca.AlunoId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome", regPresenca.AlunoId);
             return View(regPresenca);
         }
 
@@ -83,7 +83,7 @@ namespace ProjetoCorina2.Controllers
             {
                 return NotFound();
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", regPresenca.AlunoId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome", regPresenca.AlunoId);
             return View(regPresenca);
         }
 
@@ -119,7 +119,7 @@ namespace ProjetoCorina2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", regPresenca.AlunoId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome", regPresenca.AlunoId);
             return View(regPresenca);
         }
 

@@ -324,9 +324,8 @@ namespace ProjetoCorina2.Migrations
                     b.Property<Guid>("AlunoId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("DataPresenca")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("DataPresenca")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Refeicao")
                         .IsRequired()

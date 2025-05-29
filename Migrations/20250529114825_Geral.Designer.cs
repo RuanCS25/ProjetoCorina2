@@ -12,7 +12,7 @@ using ProjetoCorina2.Data;
 namespace ProjetoCorina2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250424151415_Geral")]
+    [Migration("20250529114825_Geral")]
     partial class Geral
     {
         /// <inheritdoc />
@@ -283,6 +283,8 @@ namespace ProjetoCorina2.Migrations
 
                     b.HasKey("AvisoId");
 
+                    b.HasIndex("AlunoId");
+
                     b.ToTable("Avisos", (string)null);
                 });
 
@@ -325,9 +327,8 @@ namespace ProjetoCorina2.Migrations
                     b.Property<Guid>("AlunoId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("DataPresenca")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("DataPresenca")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Refeicao")
                         .IsRequired()
@@ -431,6 +432,17 @@ namespace ProjetoCorina2.Migrations
                     b.Navigation("Classificacoe");
 
                     b.Navigation("Horario");
+                });
+
+            modelBuilder.Entity("ProjetoCorina2.Models.Aviso", b =>
+                {
+                    b.HasOne("ProjetoCorina2.Models.Aluno", "Aluno")
+                        .WithMany()
+                        .HasForeignKey("AlunoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Aluno");
                 });
 
             modelBuilder.Entity("ProjetoCorina2.Models.RegPresenca", b =>
