@@ -50,13 +50,9 @@
     </div>
 
     <footer class="border-top footer text-muted  bg-danger  ">
-        <div class="container">
             &copy; 2025 - Cozinha Online - <a asp-area="" asp-controller="Home" asp-action="Privacy">Politica de Privacidade</a>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
