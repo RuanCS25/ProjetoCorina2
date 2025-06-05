@@ -1,39 +1,53 @@
 ﻿@model ProjetoCorina2.Models.RegPresenca
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Excluir Presença";
 }
 
-<h1>Delete</h1>
+<style>
+    .registro-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px #0001;
+        padding: 32px 24px 24px 24px;
+        margin: 32px auto;
+        max-width: 600px;
+    }
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>RegPresenca</h4>
+    .registro-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+    }
+
+    .registro-dl dt {
+        font-weight: 600;
+        color: #b71c1c;
+    }
+
+    .registro-dl dd {
+        margin-bottom: 12px;
+    }
+</style>
+
+<div class="registro-card">
+    <div class="registro-title">@ViewData["Title"]</div>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Alunos)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Alunos.Nome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DataPresenca)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DataPresenca)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Refeicao)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Refeicao)
-        </dd>
+    <h5 class="text-center text-danger mb-4">Tem certeza de que deseja excluir este registro?</h5>
+    <dl class="row registro-dl">
+        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Alunos)</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.Alunos.Nome)</dd>
+        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DataPresenca)</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.DataPresenca)</dd>
+        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Refeicao)</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.Refeicao)</dd>
     </dl>
-
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="text-center mt-4">
         <input type="hidden" asp-for="RegPresencaId" />
-        <input type="submit" value="Deletar" class="btn btn-danger" /> |
-        <a asp-action="Index" class="btn btn-outline-danger">Sair</a>
+        <input type="submit" value="Deletar" class="btn btn-danger px-4" />
+        <a asp-action="Index" class="btn btn-outline-danger ms-2">Voltar</a>
     </form>
 </div>

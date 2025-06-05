@@ -1,48 +1,51 @@
 ﻿@model ProjetoCorina2.Models.Aviso
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Criar Aviso";
 }
 
-<h1>Criar</h1>
+<style>
+    .aviso-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px #0001;
+        padding: 32px 24px 24px 24px;
+        margin: 32px auto;
+        max-width: 600px;
+    }
 
-<h4>Aviso</h4>
-<hr />
-<form asp-action="Create">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    .aviso-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+    }
+</style>
 
-    <div class="row">
-        <div class="col-6">
-            <div class="form-group">
-                <label asp-for="AlunoId" class="control-label">Nome</label>
-                <select asp-for="AlunoId" class="form-control" asp-items="ViewBag.AlunoId"></select>
+<div class="aviso-card">
+    <div class="aviso-title">@ViewData["Title"]</div>
+    <hr />
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row g-3">
+            <div class="col-12">
+                <label asp-for="AlunoId" class="form-label">Aluno</label>
+                <select asp-for="AlunoId" class="form-select" asp-items="ViewBag.AlunoId"></select>
+                <span asp-validation-for="AlunoId" class="text-danger"></span>
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label">Descrição</label>
+            <div class="col-12">
+                <label asp-for="Descricao" class="form-label">Descrição</label>
                 <input asp-for="Descricao" class="form-control" />
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-6 mt-3">
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary w-100 p-3 ">
-                    <i class="bi bi-floppy"></i> Salvar
-                </button>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Criar" class="btn btn-secondary" />
-                <a asp-action="Index" class="btn btn-outline-danger">Sair</a>
-            </div>
-        </form>
-    </div>
+        <div class="mt-4 text-center">
+            <input type="submit" value="Criar" class="btn btn-secondary px-4" />
+            <a asp-action="Index" class="btn btn-outline-danger ms-2">Voltar</a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {

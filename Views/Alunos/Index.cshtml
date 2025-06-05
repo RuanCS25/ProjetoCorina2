@@ -1,74 +1,73 @@
 ﻿@model IEnumerable<ProjetoCorina2.Models.Aluno>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Alunos";
 }
 
-<h1>Alunos</h1>
+<style>
+    .aluno-index-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin: 32px 0 18px 0;
+        letter-spacing: 1px;
+    }
 
-<p>
-    <a asp-action="Create" class="btn btn-secondary"> Criar novo</a>
-</p>
-<table class="table table-dark table-striped ">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Celular)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CPF)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Classificacoe)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Horario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Senha)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Celular)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CPF)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Classificacoe.Descricao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Horario.Turno)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Senha)
-                </td>
-                <td>
-                    <div class="btn-group">
-                        <a asp-action="Edit" asp-route-id="@item.AlunoId" class="btn btn-outline-secondary">Editar</a>
-                        <a asp-action="Details" asp-route-id="@item.AlunoId" class="btn btn-outline-secondary">Detalhes</a>
-                        <a asp-action="Delete" asp-route-id="@item.AlunoId" class="btn btn-outline-danger">Deletar</a>
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    .aluno-table-container {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px #0001;
+        padding: 24px;
+        margin: 0 auto 32px auto;
+        max-width: 98vw;
+    }
+
+    .btn-group .btn {
+        min-width: 90px;
+    }
+</style>
+
+<div class="aluno-index-title">@ViewData["Title"]</div>
+<div class="aluno-table-container">
+    <div class="mb-3 text-end">
+        <a asp-action="Create" class="btn btn-secondary px-4">Criar novo</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.Celular)</th>
+                    <th>@Html.DisplayNameFor(model => model.CPF)</th>
+                    <th>@Html.DisplayNameFor(model => model.Classificacoe)</th>
+                    <th>@Html.DisplayNameFor(model => model.Horario)</th>
+                    <th>@Html.DisplayNameFor(model => model.Senha)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Celular)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CPF)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Classificacoe.Descricao)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Horario.Turno)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Senha)</td>
+                        <td>
+                            <div class="btn-group">
+                                <a asp-action="Edit" asp-route-id="@item.AlunoId" class="btn btn-outline-secondary">Editar</a>
+                                <a asp-action="Details" asp-route-id="@item.AlunoId" class="btn btn-outline-secondary">Detalhes</a>
+                                <a asp-action="Delete" asp-route-id="@item.AlunoId" class="btn btn-outline-danger">Deletar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

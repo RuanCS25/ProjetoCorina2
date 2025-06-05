@@ -23,6 +23,11 @@ namespace ProjetoCorina2.Controllers
             return View();
         }
 
+        public IActionResult Cardapio()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

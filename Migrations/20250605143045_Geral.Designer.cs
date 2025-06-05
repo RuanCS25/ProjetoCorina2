@@ -12,7 +12,7 @@ using ProjetoCorina2.Data;
 namespace ProjetoCorina2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250529114825_Geral")]
+    [Migration("20250605143045_Geral")]
     partial class Geral
     {
         /// <inheritdoc />
@@ -256,7 +256,6 @@ namespace ProjetoCorina2.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Senha")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AlunoId");
@@ -327,8 +326,9 @@ namespace ProjetoCorina2.Migrations
                     b.Property<Guid>("AlunoId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("DataPresenca")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DataPresenca")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Refeicao")
                         .IsRequired()

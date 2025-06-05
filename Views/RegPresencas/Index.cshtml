@@ -1,50 +1,65 @@
 ﻿@model IEnumerable<ProjetoCorina2.Models.RegPresenca>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Registro de Presenças";
 }
 
-<h1>Index</h1>
+<style>
+    .registro-index-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin: 32px 0 18px 0;
+        letter-spacing: 1px;
+    }
 
-<p>
-    <a asp-action="Create" class="btn btn-secondary">Criar Novo</a>
-</p>
-<table class="table table-dark table-striped ">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Alunos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataPresenca)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Refeicao)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Alunos.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataPresenca)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Refeicao)
-                </td>
-                <td>
-                    <div class="btn-group">
-                        <a asp-action="Edit" asp-route-id="@item.RegPresencaId" class="btn btn-outline-secondary">Editar</a>
-                        <a asp-action="Details" asp-route-id="@item.RegPresencaId" class="btn btn-outline-secondary">Detalhes</a>
-                        <a asp-action="Delete" asp-route-id="@item.RegPresencaId" class="btn btn-outline-danger">Deletar</a>
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    .registro-table-container {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px #0001;
+        padding: 24px;
+        margin: 0 auto 32px auto;
+        max-width: 98vw;
+    }
+
+    .btn-group .btn {
+        min-width: 90px;
+    }
+</style>
+
+<div class="registro-index-title">@ViewData["Title"]</div>
+<div class="registro-table-container">
+    <div class="mb-3 text-end">
+        <a asp-action="Create" class="btn btn-secondary px-4">Criar novo</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Alunos)</th>
+                    <th>@Html.DisplayNameFor(model => model.DataPresenca)</th>
+                    <th>@Html.DisplayNameFor(model => model.Refeicao)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Alunos.Nome)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DataPresenca)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Refeicao)</td>
+                        <td>
+                            <div class="btn-group">
+                                <a asp-action="Edit" asp-route-id="@item.RegPresencaId" class="btn btn-outline-secondary">Editar</a>
+                                <a asp-action="Details" asp-route-id="@item.RegPresencaId" class="btn btn-outline-secondary">Detalhes</a>
+                                <a asp-action="Delete" asp-route-id="@item.RegPresencaId" class="btn btn-outline-danger">Deletar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

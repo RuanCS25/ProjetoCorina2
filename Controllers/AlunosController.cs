@@ -69,7 +69,7 @@ namespace ProjetoCorina2.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClassificacoeId"] = new SelectList(_context.Classificacoes, "ClassificacoeId", "Descricao", aluno.ClassificacoeId);
-            ViewData["HorarioId"] = new SelectList(_context.Horarios, "HorarioId", "HorarioId", aluno.HorarioId);
+            ViewData["HorarioId"] = new SelectList(_context.Horarios, "HorarioId", "Turno", aluno.HorarioId);
             return View(aluno);
         }
 
@@ -87,7 +87,7 @@ namespace ProjetoCorina2.Controllers
                 return NotFound();
             }
             ViewData["ClassificacoeId"] = new SelectList(_context.Classificacoes, "ClassificacoeId", "Descricao", aluno.ClassificacoeId);
-            ViewData["HorarioId"] = new SelectList(_context.Horarios, "HorarioId", "HorarioId", aluno.HorarioId);
+            ViewData["HorarioId"] = new SelectList(_context.Horarios, "HorarioId", "Turno", aluno.HorarioId);
             return View(aluno);
         }
 
@@ -124,7 +124,7 @@ namespace ProjetoCorina2.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClassificacoeId"] = new SelectList(_context.Classificacoes, "ClassificacoeId", "Descricao", aluno.ClassificacoeId);
-            ViewData["HorarioId"] = new SelectList(_context.Horarios, "HorarioId", "HorarioId", aluno.HorarioId);
+            ViewData["HorarioId"] = new SelectList(_context.Horarios, "HorarioId", "Turno", aluno.HorarioId);
             return View(aluno);
         }
 
