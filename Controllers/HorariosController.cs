@@ -22,9 +22,9 @@ namespace ProjetoCorina2.Controllers
         // GET: Horarios
         public async Task<IActionResult> Index()
         {
-              return _context.Horarios != null ? 
-                          View(await _context.Horarios.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Horarios'  is null.");
+            return _context.Horarios != null ?
+                        View(await _context.Horarios.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Horarios'  is null.");
         }
 
         // GET: Horarios/Details/5
@@ -151,14 +151,14 @@ namespace ProjetoCorina2.Controllers
             {
                 _context.Horarios.Remove(horario);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool HorarioExists(Guid id)
         {
-          return (_context.Horarios?.Any(e => e.HorarioId == id)).GetValueOrDefault();
+            return (_context.Horarios?.Any(e => e.HorarioId == id)).GetValueOrDefault();
         }
     }
 }

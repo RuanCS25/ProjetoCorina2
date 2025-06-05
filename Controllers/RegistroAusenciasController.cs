@@ -156,14 +156,14 @@ namespace ProjetoCorina2.Controllers
             {
                 _context.ResgistroAusencias.Remove(registroAusencia);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RegistroAusenciaExists(Guid id)
         {
-          return (_context.ResgistroAusencias?.Any(e => e.RegistroAusenciaId == id)).GetValueOrDefault();
+            return (_context.ResgistroAusencias?.Any(e => e.RegistroAusenciaId == id)).GetValueOrDefault();
         }
     }
 }

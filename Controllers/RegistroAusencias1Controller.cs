@@ -48,7 +48,7 @@ namespace ProjetoCorina2.Controllers
         // GET: RegistroAusencias1/Create
         public IActionResult Create()
         {
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId");
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome");
             return View();
         }
 
@@ -66,7 +66,7 @@ namespace ProjetoCorina2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", registroAusencia.AlunoId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome", registroAusencia.AlunoId);
             return View(registroAusencia);
         }
 
@@ -83,7 +83,7 @@ namespace ProjetoCorina2.Controllers
             {
                 return NotFound();
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", registroAusencia.AlunoId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome", registroAusencia.AlunoId);
             return View(registroAusencia);
         }
 
@@ -119,7 +119,7 @@ namespace ProjetoCorina2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", registroAusencia.AlunoId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome", registroAusencia.AlunoId);
             return View(registroAusencia);
         }
 
@@ -156,14 +156,14 @@ namespace ProjetoCorina2.Controllers
             {
                 _context.RegistroAusencias.Remove(registroAusencia);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RegistroAusenciaExists(Guid id)
         {
-          return (_context.RegistroAusencias?.Any(e => e.RegistroAusenciaId == id)).GetValueOrDefault();
+            return (_context.RegistroAusencias?.Any(e => e.RegistroAusenciaId == id)).GetValueOrDefault();
         }
     }
 }

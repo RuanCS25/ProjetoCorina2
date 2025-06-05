@@ -48,7 +48,7 @@ namespace ProjetoCorina2.Controllers
         // GET: Avisos/Create
         public IActionResult Create()
         {
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId");
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome");
             return View();
         }
 
@@ -66,7 +66,7 @@ namespace ProjetoCorina2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", aviso.AlunoId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome", aviso.AlunoId);
             return View(aviso);
         }
 
@@ -83,7 +83,7 @@ namespace ProjetoCorina2.Controllers
             {
                 return NotFound();
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", aviso.AlunoId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome", aviso.AlunoId);
             return View(aviso);
         }
 
@@ -119,7 +119,7 @@ namespace ProjetoCorina2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "AlunoId", aviso.AlunoId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "AlunoId", "Nome", aviso.AlunoId);
             return View(aviso);
         }
 
@@ -156,14 +156,14 @@ namespace ProjetoCorina2.Controllers
             {
                 _context.Avisos.Remove(aviso);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AvisoExists(Guid id)
         {
-          return (_context.Avisos?.Any(e => e.AvisoId == id)).GetValueOrDefault();
+            return (_context.Avisos?.Any(e => e.AvisoId == id)).GetValueOrDefault();
         }
     }
 }
