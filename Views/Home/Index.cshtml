@@ -1,20 +1,100 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <br /><br />
-    <h1 class="display-4">Bem Vindo</h1><br />
-    <p>
-        Este é um site feito pelos alunos do SESI/SENAI com o intuito </br> de evitar o desperdício na rede escolar.
-    </p>
-</div>
-<div id="carouselExampleFade" class="carousel slide carousel-fade">
-    <div class="carousel-inner">
-     
-        <div class="carousel-item active">
-            <img src="https://cronos-media.sesisenaisp.org.br/api/media/1-0/files?img=img_65_240822_964d6335-9d5b-412d-a10e-053bd1239c31_o.jpg&tipo=p"
-                 class="d-block w-100" width="300" height="500" alt="Segundo Slide">
-        </div>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
 
+    .home-bg {
+        min-height: 100vh;
+        width: 100vw;
+        background: url('https://cronos-media.sesisenaisp.org.br/api/media/1-0/files?img=img_65_240822_964d6335-9d5b-412d-a10e-053bd1239c31_o.jpg&tipo=p') center center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .home-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.55);
+        backdrop-filter: blur(2px);
+        z-index: 1;
+    }
+
+    .home-content {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        padding: 2rem;
+    }
+
+        .home-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.7);
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+
+    .home-subtitle {
+        font-size: 1.35rem;
+        color: #fff;
+        margin: 0 0 2.5rem 0;
+        max-width: 600px;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        font-family: 'Segoe UI', 'Arial', sans-serif;
+        font-weight: 400;
+    }
+
+    .btn-menu {
+        font-size: 1.25rem;
+        padding: 0.9rem 2.8rem;
+        background: linear-gradient(90deg, #d32f2f 60%, #ff5252 100%);
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        font-weight: bold;
+        box-shadow: 0 4px 24px rgba(211,47,47,0.25);
+        transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        margin-top: 0.5rem;
+    }
+
+        .btn-menu:hover, .btn-menu:focus {
+            background: linear-gradient(90deg, #b71c1c 60%, #d32f2f 100%);
+            color: #fff;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 32px rgba(211,47,47,0.35);
+            text-decoration: none;
+        }
+
+</style>
+
+<div class="home-bg">
+    <div class="home-overlay"></div>
+    <div class="home-content">
+        <h1>Cozinha Online</h1>
+        <p class="home-subtitle">
+            Descubra um mundo de receitas, aprenda com os melhores e acesse conteúdos exclusivos para transformar sua cozinha em um verdadeiro espetáculo!
+        </p>
+        <a href="/Alunos/Index" class="btn btn-menu">Acessar Menu</a>
     </div>
+</div>

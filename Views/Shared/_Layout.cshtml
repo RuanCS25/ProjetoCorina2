@@ -10,49 +10,135 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-danger  border-bottom box-shadow mb-3">
+        <style>
+            .custom-navbar {
+                background: rgba(255,255,255,0.85);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+                padding: 0.3rem 0;
+            }
+
+                .custom-navbar .navbar-nav .nav-link {
+                    color: #444 !important;
+                    font-weight: 600;
+                    margin: 0 0.7rem;
+                    letter-spacing: 0.03em;
+                }
+
+                    .custom-navbar .navbar-nav .nav-link:hover {
+                        color: #d32f2f !important;
+                    }
+
+                .custom-navbar .navbar-brand img {
+                    height: 38px;
+                    margin-right: 0.5rem;
+                }
+
+                .custom-navbar .btn-signup {
+                    background: red;
+                    color: #fff;
+                    font-weight: bold;
+                    border: none;
+                    margin-left: 0.5rem;
+                    padding: 0.4rem 1.1rem;
+                    border-radius: 3px;
+                    transition: background 0.2s;
+                }
+
+                    .custom-navbar .btn-signup:hover {
+                        background: red;
+                        color: #fff;
+                    }
+
+                .custom-navbar .btn-login {
+                    background: transparent;
+                    color: #444;
+                    font-weight: 600;
+                    border: none;
+                    margin-left: 0.5rem;
+                    padding: 0.4rem 1.1rem;
+                }
+        </style>
+
+        <nav class="navbar navbar-expand-lg custom-navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cozinha Online</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/sesilogot.png" alt="Logo SESI" />
+                    <span class="fw-bold" style="font-size:1.5rem; color:#d32f2f;">Cozinha Online</span>
+                </a>
+                <!-- Botão hamburguer padrão do Bootstrap 5 -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" aria-label="Abrir menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Central</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Central</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Politica de Privacidade</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Política de Privacidade</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Alunos</a>
+                            <a class="nav-link" asp-area="" asp-controller="Alunos" asp-action="Index">Alunos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="RegPresencas" asp-action="Index">Registrar Presencas</a>
+                            <a class="nav-link" asp-area="" asp-controller="RegPresencas" asp-action="Index">Registrar Presenças</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="RegistroAusencias1" asp-action="Index">Registrar Ausencias</a>
+                            <a class="nav-link" asp-area="" asp-controller="RegistroAusencias1" asp-action="Index">Registrar Ausências</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Avisos" asp-action="Index">Avisos</a>
+                            <a class="nav-link" asp-area="" asp-controller="Avisos" asp-action="Index">Avisos</a>
                         </li>
                     </ul>
-                    <partial name="_LoginPartial" />
+                    <div class="d-flex align-items-center">
+                        <a class="btn btn-login" href="/Identity/Account/Login"><i class="bi bi-person"></i> Entrar</a>
+                        <a class="btn btn-signup" href="/Identity/Account/Register">Cadastrar</a>
+                    </div>
                 </div>
             </div>
         </nav>
+
+        <!-- Offcanvas lateral para mobile -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Central</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Política de Privacidade</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Alunos" asp-action="Index">Alunos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="RegPresencas" asp-action="Index">Registrar Presenças</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="RegistroAusencias1" asp-action="Index">Registrar Ausências</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Avisos" asp-action="Index">Avisos</a>
+                    </li>
+                </ul>
+                <hr />
+                <div class="d-flex flex-column">
+                    <a class="btn btn-login mb-2" href="/Identity/Account/Login"><i class="bi bi-person"></i> Entrar</a>
+                    <a class="btn btn-signup" href="/Identity/Account/Register">Cadastrar</a>
+                </div>
+            </div>
+        </div>
     </header>
-    <div class="container">
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted  bg-danger  ">
-            &copy; 2025 - Cozinha Online - <a asp-area="" asp-controller="Home" asp-action="Privacy">Politica de Privacidade</a>
-        </div>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+    @RenderSection("Scripts", required: false)
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
