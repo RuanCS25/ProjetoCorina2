@@ -1,0 +1,64 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+
+.controle-fonte {
+    margin-top: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+    button:hover {
+        background: #0056b3;
+    }
+
+/* Tema contraste */
+.contraste-ativo {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+    .contraste-ativo a,
+    .contraste-ativo label,
+    .contraste-ativo input,
+    .contraste-ativo select,
+    .contraste-ativo button,
+    .contraste-ativo h1,
+    .contraste-ativo h2,
+    .contraste-ativo h3,
+    .contraste-ativo h4,
+    .contraste-ativo h5,
+    .contraste-ativo h6 {
+        color: #fff !important;
+        background-color: #000 !important;
+        border-color: #fff !important;
+    }
