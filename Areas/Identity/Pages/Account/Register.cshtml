@@ -1,16 +1,13 @@
-<<<<<<< HEAD
-﻿
-=======
-
+﻿@page
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
 }
 
-<h1>Registrar</h1>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 offset-4">
+        <h1>Registrar</h1>
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Criar uma nova conta</h2>
             <hr />
@@ -33,41 +30,8 @@
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registrar</button>
         </form>
     </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use outro serviço para se registrar.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            Não há serviços de autenticação externa configurados. Veja isto <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
-
-                                sobre como configurar este aplicativo ASP.NET para oferecer suporte ao login por meio de serviços externos
-                            </a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
->>>>>>> master

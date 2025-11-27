@@ -8,6 +8,12 @@ html {
     }
 }
 
+linkFooter {
+    text-decoration: none;
+    color: white;
+    background-color: black !important;
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -16,11 +22,6 @@ html {
     position: relative;
     min-height: 100%;
 }
-
-body {
-    margin-bottom: 60px;
-}
-
 
 .controle-fonte {
     margin-top: 20px;
@@ -41,6 +42,9 @@ button {
         background: #0056b3;
     }
 
+.contraste-ativo .linkFooter {
+    background-color: #DC3545 !important;
+}
 /* Tema contraste */
 .contraste-ativo {
     background-color: #000 !important;
@@ -57,8 +61,30 @@ button {
     .contraste-ativo h3,
     .contraste-ativo h4,
     .contraste-ativo h5,
-    .contraste-ativo h6 {
+    .contraste-ativo h6,
+    .contraste-ativo nav,
+    .contraste-ativo navbar,
+    .contraste-ativo th,
+    .contraste-ativo td {
         color: #fff !important;
         background-color: #000 !important;
         border-color: #fff !important;
     }
+
+    .contraste-ativo .btnfonte {
+        background-color: white !important;
+        color: black !important;
+    }
+
+
+footer {
+    margin-top: 160px;
+}
+
+.carousel-item {
+    margin-bottom: 80px;
+}
+
+.cantina {
+    margin-left: 300px;
+}

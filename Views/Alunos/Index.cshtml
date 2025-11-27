@@ -9,57 +9,58 @@
 <p>
     <a asp-action="Create" class="btn btn-secondary"> Criar novo</a>
 </p>
-<table class="table table-dark table-striped ">
+<table class="table">
+    <thead class="thead-dark">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                    @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                    @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Celular)
+                    @Html.DisplayNameFor(model => model.Celular)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CPF)
+                    @Html.DisplayNameFor(model => model.CPF)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Classificacoe)
+                    @Html.DisplayNameFor(model => model.Classificacoe)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Horario)
+                    @Html.DisplayNameFor(model => model.Horario)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Senha)
+                    @Html.DisplayNameFor(model => model.Senha)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
+            @foreach (var item in Model)
+            {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
+                        @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Email)
+                        @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Celular)
+                        @Html.DisplayFor(modelItem => item.Celular)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CPF)
+                        @Html.DisplayFor(modelItem => item.CPF)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Classificacoe.Descricao)
+                        @Html.DisplayFor(modelItem => item.Classificacoe.Descricao)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Horario.Turno)
+                        @Html.DisplayFor(modelItem => item.Horario.Turno)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Senha)
+                        @Html.DisplayFor(modelItem => item.Senha)
                 </td>
                 <td>
                     <div class="btn-group">
@@ -69,6 +70,6 @@
                     </div>
                 </td>
             </tr>
-        }
+            }
     </tbody>
 </table>
