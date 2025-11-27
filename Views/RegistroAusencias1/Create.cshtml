@@ -1,37 +1,56 @@
 ﻿@model ProjetoCorina2.Models.RegistroAusencia
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Registrar Ausência";
 }
 
-<h1>Criar</h1>
+<style>
+    .registro-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px #0001;
+        padding: 32px 24px 24px 24px;
+        margin: 32px auto;
+        max-width: 600px;
+    }
 
-<h4>RegistroAusencia</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="AlunoId" class="control-label"></label>
-                <select asp-for="AlunoId" class="form-control" asp-items="ViewBag.AlunoId"></select>
+    .registro-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+    }
+</style>
+
+<div class="registro-card">
+    <div class="registro-title">@ViewData["Title"]</div>
+    <hr />
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row g-3">
+            <div class="col-12">
+                <label asp-for="AlunoId" class="form-label">Aluno</label>
+                <select asp-for="AlunoId" class="form-select" asp-items="ViewBag.AlunoId"></select>
+                <span asp-validation-for="AlunoId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" />
+            <div class="col-12">
+                <label asp-for="Data" class="form-label">Data</label>
+                <input asp-for="Data" class="form-control" type="date" />
                 <span asp-validation-for="Data" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Refeicao" class="control-label"></label>
+            <div class="col-12">
+                <label asp-for="Refeicao" class="form-label">Refeição</label>
                 <input asp-for="Refeicao" class="form-control" />
                 <span asp-validation-for="Refeicao" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Criar" class="btn btn-secondary" />
-                <a asp-action="Index" class="btn btn-outline-danger">Sair</a>
-            </div>
-        </form>
-    </div>
+        </div>
+        <div class="mt-4 text-center">
+            <input type="submit" value="Registrar" class="btn btn-secondary px-4" />
+            <a asp-action="Index" class="btn btn-outline-danger ms-2">Voltar</a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {

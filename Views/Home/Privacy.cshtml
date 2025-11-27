@@ -1,60 +1,104 @@
 ﻿@{
-    ViewData["Title"] = "Politica de Privacidade";
+    ViewData["Title"] = "Política de Privacidade";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>
-    1. Compromisso com a Privacidade <br />
-    Esta Política de Privacidade tem como objetivo esclarecer como coletamos, utilizamos, armazenamos e protegemos os dados pessoais dos usuários cadastrados em nossa plataforma, desenvolvida com o propósito de evitar o desperdício nas escolas. Respeitamos a privacidade dos alunos e responsáveis, e garantimos o tratamento responsável de todas as informações fornecidas.<br /><br />
+<style>
+    .privacy-bg {
+        background: #f7f7f7;
+        min-height: 100vh;
+        padding: 40px 0;
+    }
 
-    2. Informações Coletadas <br />
-    Durante o cadastro dos usuários (alunos), coletamos os seguintes dados pessoais:
+    .privacy-card {
+        background: #fff;
+        max-width: 700px;
+        margin: 40px auto 0 auto;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px #0001;
+        padding: 40px 32px 32px 32px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        color: #222;
+        line-height: 1.7;
+    }
 
-    Nome completo
+    .privacy-title {
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+    }
 
-    E-mail
+    .privacy-section-title {
+        color: #b71c1c;
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-top: 1.5em;
+        margin-bottom: 0.3em;
+    }
 
-    Telefone
+    .privacy-list {
+        margin: 0.5em 0 1em 1.5em;
+        padding: 0;
+    }
 
-    CPF
+        .privacy-list li {
+            margin-bottom: 0.3em;
+        }
+</style>
 
-    Senha de acesso (armazenada de forma criptografada)
+<div class="privacy-bg">
+    <div class="privacy-card">
+        <div class="privacy-title">@ViewData["Title"]</div>
 
-    Turno (manha, tarde ou integal)
+        <div class="privacy-section-title">1. Compromisso com a Privacidade</div>
+        <p>
+            Esta Política de Privacidade tem como objetivo esclarecer como coletamos, utilizamos, armazenamos e protegemos os dados pessoais dos usuários cadastrados em nossa plataforma, desenvolvida com o propósito de evitar o desperdício nas escolas. Respeitamos a privacidade dos alunos e responsáveis, e garantimos o tratamento responsável de todas as informações fornecidas.
+        </p>
 
-    Nível de ensino (ex: Ensino Fundamental I ou II)
+        <div class="privacy-section-title">2. Informações Coletadas</div>
+        <p>Durante o cadastro dos usuários (alunos), coletamos os seguintes dados pessoais:</p>
+        <ul class="privacy-list">
+            <li>Nome completo</li>
+            <li>E-mail</li>
+            <li>Telefone</li>
+            <li>CPF</li>
+            <li>Senha de acesso (armazenada de forma criptografada)</li>
+            <li>Turno (manhã, tarde ou integral)</li>
+            <li>Nível de ensino (ex: Ensino Fundamental I ou II)</li>
+        </ul>
+        <p>Essas informações são necessárias para o funcionamento adequado do sistema e para a personalização de serviços que visam reduzir o desperdício escolar.</p>
 
-    Essas informações são necessárias para o funcionamento adequado do sistema e para a personalização de serviços que visam reduzir o desperdício escolar. <br /> <br />
+        <div class="privacy-section-title">3. Finalidade do Uso dos Dados</div>
+        <ul class="privacy-list">
+            <li>Identificação e autenticação dos usuários;</li>
+            <li>Organização e gerenciamento do fluxo escolar (turnos e níveis de ensino);</li>
+            <li>Emissão de relatórios e análises para otimizar recursos e minimizar desperdícios;</li>
+            <li>Comunicação com os usuários sobre atividades, avisos e melhorias no sistema.</li>
+        </ul>
 
-    3. Finalidade do Uso dos Dados <br />
-    Os dados coletados serão utilizados para as seguintes finalidades:
+        <div class="privacy-section-title">4. Armazenamento e Segurança dos Dados</div>
+        <p>
+            Adotamos medidas de segurança adequadas para proteger os dados pessoais contra acessos não autorizados, alterações, divulgações ou destruições indevidas. A senha dos usuários é armazenada de forma criptografada e o acesso aos dados é restrito apenas à equipe autorizada do projeto.
+        </p>
 
-    Identificação e autenticação dos usuários;
+        <div class="privacy-section-title">5. Compartilhamento de Informações</div>
+        <p>
+            Não compartilhamos, vendemos ou alugamos os dados pessoais coletados com terceiros. Os dados podem ser utilizados de forma anônima para fins de pesquisa, estatísticas e melhorias do sistema, sempre respeitando a privacidade dos alunos.
+        </p>
 
-    Organização e gerenciamento do fluxo escolar (turnos e níveis de ensino);
+        <div class="privacy-section-title">6. Direitos dos Usuários</div>
+        <ul class="privacy-list">
+            <li>Acessar seus dados pessoais armazenados;</li>
+            <li>Corrigir ou atualizar informações incorretas;</li>
+            <li>Solicitar a exclusão de seus dados pessoais, quando possível;</li>
+            <li>Retirar o consentimento a qualquer momento.</li>
+        </ul>
 
-    Emissão de relatórios e análises para otimizar recursos e minimizar desperdícios;
-
-    Comunicação com os usuários sobre atividades, avisos e melhorias no sistema. <br /> <br />
-
-
-    4. Armazenamento e Segurança dos Dados <br />
-    Adotamos medidas de segurança adequadas para proteger os dados pessoais contra acessos não autorizados, alterações, divulgações ou destruições indevidas. A senha dos usuários é armazenada de forma criptografada e o acesso aos dados é restrito apenas à equipe autorizada do projeto. <br /> <br />
-
-    5. Compartilhamento de Informações <br />
-    Não compartilhamos, vendemos ou alugamos os dados pessoais coletados com terceiros. Os dados podem ser utilizados de forma anônima para fins de pesquisa, estatísticas e melhorias do sistema, sempre respeitando a privacidade dos alunos. <br /> <br />
-
-    6. Direitos dos Usuários <br />
-    Os usuários têm o direito de:
-
-    Acessar seus dados pessoais armazenados; <br />
-
-    Corrigir ou atualizar informações incorretas; <br />
-
-    Solicitar a exclusão de seus dados pessoais, quando possível; <br />
-
-    Retirar o consentimento a qualquer momento. <br /> <br />
-
-    7. Alterações nesta Política <br />
-    Esta Política de Privacidade poderá ser atualizada conforme necessário, visando melhorias no serviço ou para adequação à legislação vigente. Sempre que houver alterações relevantes, os usuários serão devidamente informados. <br /> <br />
-</p>
+        <div class="privacy-section-title">7. Alterações nesta Política</div>
+        <p>
+            Esta Política de Privacidade poderá ser atualizada conforme necessário, visando melhorias no serviço ou para adequação à legislação vigente. Sempre que houver alterações relevantes, os usuários serão devidamente informados.
+        </p>
+    </div>
+</div>

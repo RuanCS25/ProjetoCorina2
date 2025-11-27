@@ -20,6 +20,6 @@ namespace ProjetoCorina2.Models
 
         public Horario? Horario { get; set; }
 
-        public string Senha { get; set; }
+        public string? Senha { get; set; }
     }
 }
